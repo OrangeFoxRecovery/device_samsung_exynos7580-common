@@ -70,7 +70,11 @@ if [ "$TARGET_SOC" = "exynos7580" ]; then
   export FOX_BUILD_TYPE="Unofficial"
   
   # Quick Backup Defaults
-  export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;"
+  if [ "$TARGET_SUPPORTS_PROJECT_TREBLE" = "true" ]; then
+    export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;/vendor_image;"
+  else
+    export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;"
+  fi
   
   # Run a Process after Formatting Data to Work-Around MTP Issues!
   export OF_RUN_POST_FORMAT_PROCESS=1
