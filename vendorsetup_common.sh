@@ -39,6 +39,14 @@ if [ "$TARGET_SOC" = "exynos7580" ]; then
   export FOX_DELETE_AROMAFM=1
   export OF_USE_SYSTEM_FINGERPRINT=1
   
+  # Exynos Only
+	export FOX_RECOVERY_INSTALL_PARTITION="/dev/block/platform/13540000.dwmmc0/by-name/RECOVERY"
+	export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM"
+	export FOX_RECOVERY_BOOT_PARTITION="/dev/block/platform/13540000.dwmmc0/by-name/BOOT"
+  if [ "$TARGET_SUPPORTS_PROJECT_TREBLE" = "true" ]; then
+    export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/platform/13540000.dwmmc0/by-name/VENDOR"
+  fi
+  
   export FOX_BUGGED_AOSP_ARB_WORKAROUND="1510672800"; # Tue Nov 14 15:20:00 GMT 2017
   export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-21.4.zip
   export FOX_USE_BASH_SHELL=1
