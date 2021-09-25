@@ -69,6 +69,9 @@ if [ "$TARGET_SOC" = "exynos7580" ]; then
   export OF_MAINTAINER_AVATAR="misc/Sushrut1101.png"
   export FOX_BUILD_TYPE="Unofficial"
   
+  # Quick Backup Defaults
+  export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;"
+  
   # Run a Process after Formatting Data to Work-Around MTP Issues!
   export OF_RUN_POST_FORMAT_PROCESS=1
 
